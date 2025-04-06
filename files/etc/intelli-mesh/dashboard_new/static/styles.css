@@ -1,0 +1,312 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+form {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+.navbar {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Login page styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+}
+
+body.login-page {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+}
+
+.login-card h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.login-card .form-control {
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.login-card .btn-primary {
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+.login-card .btn-primary:hover {
+    background: #2980b9;
+}
+
+/* Dashboard styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --success-color: #27ae60;
+    --danger-color: #e74c3c;
+    --background-color: #f8f9fa;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric-bars {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.vertical-bar-container {
+    text-align: center;
+}
+
+.vertical-bar {
+    height: 120px;
+    width: 40px;
+    position: relative;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.bar-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--secondary-color);
+    transition: height 0.5s ease;
+}
+
+.bar-label {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.system-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.toggle-btn {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    transition: all 0.3s;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.toggle-btn.on {
+    background: var(--success-color) !important;
+}
+
+.toggle-btn.off {
+    background: var(--danger-color) !important;
+}
+
+.power-controls {
+    margin-left: auto;
+}
+
+.client-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: none !important;
+    margin-bottom: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 10px !important;
+}
+
+.speed-meter {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.latency-good { color: var(--success-color); }
+.latency-warning { color: var(--warning-color); }
+.latency-bad { color: var(--danger-color); }
+
+.provider-logo {
+    height: 24px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.provider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.vertical-speed-bar {
+    height: 150px;
+    width: 40px;
+    background: #e9ecef;
+    border-radius: 4px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.speed-bar-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: var(--secondary-color);
+    border-radius: 4px;
+    transition: height 0.3s ease;
+}
+
+.speed-label {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.speed-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+.speed-bar-container {
+    flex: 1;
+    max-width: 100px;
+}
+
+.speed-section {
+    flex: 1;
+    max-width: 200px;
+}
+
+.speed-bars-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.speed-bar-fill.download {
+    background-color: var(--secondary-color);
+}
+
+.speed-bar-fill.upload {
+    background-color: var(--success-color);
+}
+
+.speed-legend {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.legend-item {
+    display: inline-flex;
+    align-items: center;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 5px;
+}
+
+.legend-color.download {
+    background-color: var(--secondary-color);
+}
+
+.legend-color.upload {
+    background-color: var(--success-color);
+}
+
+.text-monospace {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+

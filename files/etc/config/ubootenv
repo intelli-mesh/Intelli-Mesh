@@ -1,0 +1,15 @@
+
+config ubootenv
+	option dev '/dev/mmcblk0p1'
+	option offset '0x0'
+	option envsize '0x40000'
+	option secsize '0x40000'
+	option numsec '1'
+
+config ubootenv
+	option dev '/dev/mmcblk0p1'
+	option offset '0x40000'
+	option envsize '0x40000'
+	option secsize '0x40000'
+	option numsec '1'
+

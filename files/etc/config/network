@@ -1,0 +1,145 @@
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd19:2c71:4937::/48'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'bat0'
+	list ports 'lan1'
+	list ports 'lan2'
+	list ports 'lan3'
+	list ports 'sfp2'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '192.168.99.1'
+	option netmask '255.255.255.0'
+
+config device
+	option name 'br-wan'
+	option type 'bridge'
+	list ports 'eth1'
+	list ports 'wan'
+
+config device
+	option name 'eth1'
+	option macaddr '4a:65:01:92:e2:97'
+
+config device
+	option name 'wan'
+	option macaddr '4a:65:01:92:e2:97'
+
+config interface 'wan'
+	option device 'wan'
+	option proto 'dhcp'
+	option metric '1'
+
+config interface 'bat0'
+	option proto 'batadv'
+	option routing_algo 'BATMAN_IV'
+	option aggregated_ogms '1'
+	option ap_isolation '0'
+	option bonding '0'
+	option bridge_loop_avoidance '1'
+	option distributed_arp_table '1'
+	option fragmentation '1'
+	option gw_mode 'off'
+	option hop_penalty '30'
+	option isolation_mark '0x00000000/0x00000000'
+	option log_level '0'
+	option multicast_mode '1'
+	option multicast_fanout '16'
+	option network_coding '0'
+	option orig_interval '1000'
+
+config interface 'mesh'
+	option proto 'batadv_hardif'
+	option master 'bat0'
+	option mtu '1536'
+
+config device
+	option name 'br-default'
+	option type 'bridge'
+	option ports 'bat0'
+
+config interface 'default'
+	option device 'br-default'
+	option proto 'static'
+	option ipaddr '192.168.10.102'
+	option netmask '255.255.255.0'
+	list dns '1.1.1.1'
+	list dns '8.8.8.8'
+
+config route
+	option interface 'br-default'
+	option target '0.0.0.0'
+	option netmask '0.0.0.0'
+
+config interface 'wwan'
+	option device 'eth2'
+	option proto 'dhcp'
+	option metric '3'
+
+config interface 'network1'             
+        option uid '1'                  
+        option proto 'static'           
+        option ipaddr '172.16.81.1'            
+        option netmask '255.255.255.0'         
+        list dns '8.8.8.8'                     
+        list dns '8.8.4.4'                           
+        option device 'br-network1'                  
+                                                     
+config interface 'network2'            
+        option uid '2'                 
+        option proto 'static'          
+        option ipaddr '172.22.100.1'    
+        option netmask '255.255.255.0'  
+        list dns '8.8.8.8'              
+        list dns '8.8.4.4'              
+        option device 'br-network2'     
+                                         
+config interface 'network3'              
+        option uid '3'                               
+        option proto 'static'                        
+        option ipaddr '172.23.100.1'                 
+        option netmask '255.255.255.0'               
+        list dns '8.8.8.8'                           
+        list dns '8.8.4.4'               
+        option device 'br-network3'      
+                                                     
+config interface 'network4'                          
+        option uid '4'                               
+        option proto 'static'          
+        option ipaddr '172.16.84.1'    
+        option netmask '255.255.255.0' 
+        list dns '8.8.8.8'              
+        list dns '8.8.4.4'              
+        option device 'br-network4' 
+
+config device                          
+        option name 'br-network1'      
+        option type 'bridge'            
+        list ports 'bat0.1'             
+                                        
+config device                           
+        option name 'br-network2'       
+        option type 'bridge'             
+        list ports 'bat0.2'              
+                                                     
+config device                                        
+        option name 'br-network3'                    
+        option type 'bridge'                         
+        list ports 'bat0.3'           
+                                      
+config device                         
+        option name 'br-network4'   
+        option type 'bridge'          
+        list ports 'bat0.4'

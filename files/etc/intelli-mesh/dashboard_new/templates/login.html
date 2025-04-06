@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+<body class="login-page">
+    <div class="login-card">
+        <h3 class="text-center">Network Dashboard</h3>
+        <form id="loginForm" onsubmit="event.preventDefault(); login()">
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Username" id="username" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" placeholder="Password" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+    <script>
+        function login() {
+            const data = {
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value
+            };
+
+            fetch('/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: new URLSearchParams(data)
+            }).then(r => r.json()).then(data => {
+                if (data.redirect) {
+                    window.location = data.redirect;
+                } else if (data.error) {
+                    alert('Login failed: ' + data.error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
